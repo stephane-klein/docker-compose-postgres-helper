@@ -7,7 +7,7 @@ Features:
 - [x] Load fixtures
 - [x] Enter in PostgreSQL interactive terminal
 - [x] Dump local database
-- [ ] Import in local database 
+- [x] Import in local database 
 
 ## How to use
 
@@ -64,4 +64,10 @@ Generate local dump:
 ```
 $ ./scripts/dump-local-pg.sh
 Dump exported in dumps/dump.sql
+```
+
+Import dump locally:
+
+```
+$ ./scripts/import-in-local-pg.sh
 ```
