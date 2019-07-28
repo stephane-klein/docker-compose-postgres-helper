@@ -1,5 +1,16 @@
 # docker-compose postgres helper scripts
 
+Features:
+
+- [x] Start and wait Postgres
+- [x] Load seed schema
+- [x] Load fixtures
+- [x] Enter in PostgreSQL interactive terminal
+- [x] Dump local database
+- [ ] Import in local database 
+
+## How to use
+
 Start Postgres and wait it starting:
 
 ```
@@ -48,3 +59,9 @@ postgres=# select * from users limit 2;
 (2 rows)
 ```
 
+Generate local dump:
+
+```
+$ ./scripts/dump-local-pg.sh
+Dump exported in dumps/dump.sql
+```
