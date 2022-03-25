@@ -76,3 +76,26 @@ Import dump locally:
 ```
 $ ./scripts/import-in-local-pg.sh
 ```
+
+How to execute multiline SQL command:
+
+```
+$ cat << EOF | docker compose exec -T postgres sh -c "psql --quiet -U \$POSTGRES_USER \$POSTGRES_DB"
+CREATE OR REPLACE FUNCTION drop_all ()
+   RETURNS VOID  AS
+   \$\$
+   DECLARE rec RECORD;
+   BEGIN
+       -- Get all the schemas
+        FOR rec IN
+        SELECT nspname FROM pg_catalog.pg_namespace WHERE (nspname NOT LIKE 'pg_%') and (nspname != 'information_schema')
+           LOOP
+             EXECUTE 'DROP SCHEMA ' || rec.nspname || ' CASCADE';
+           END LOOP;
+           RETURN;
+   END;
+   \$\$ LANGUAGE plpgsql;
+
+SELECT drop_all();
+EOF
+```
