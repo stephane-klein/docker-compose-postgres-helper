@@ -1,14 +1,14 @@
-version: "3.7"
+version: '3.8'
 services:
   postgres:
-    image: postgres:11.4-alpine
+    image: postgres:14-alpine
     environment:
       POSTGRES_USER: postgres
       POSTGRES_DB: postgres
       POSTGRES_PASSWORD: password
     volumes:
       - ./postgres/:/var/lib/postgresql/
-
-networks:
-   default:
-     driver: bridge
+    healthcheck:
+      test: ["CMD", "sh", "-c", "pg_isready -U $$POSTGRES_USER -h $$(hostname -i)"]
+      interval: 10s
+      start_period: 30s

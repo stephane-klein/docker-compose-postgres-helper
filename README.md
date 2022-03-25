@@ -7,14 +7,19 @@ Features:
 - [x] Load fixtures
 - [x] Enter in PostgreSQL interactive terminal
 - [x] Dump local database
-- [x] Import in local database 
+- [x] Import in local database
 
 ## How to use
+
+```sh
+$ docker compose version
+Docker Compose version 2.2.2
+```
 
 Start Postgres and wait it starting:
 
 ```
-$ ./scripts/start-pg-and-wait-starting.sh
+$ docker compose up -d postgres --wait
 ```
 
 Initialize database with seed schema:
