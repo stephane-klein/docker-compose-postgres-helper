@@ -77,6 +77,13 @@ Import dump locally:
 $ ./scripts/import-in-local-pg.sh
 ```
 
+Display table size:
+
+```
+$ ./scripts/display-table-sizes.sh | grep "users"
+ public.users                                             | 48 kB      | 32 kB        | 80 kB
+```
+
 How to execute multiline SQL command:
 
 ```
