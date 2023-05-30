@@ -9,7 +9,7 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - ./postgres/:/var/lib/postgresql/
+      - ./volumes/postgres/:/var/lib/postgresql/
     healthcheck:
       test: ["CMD", "sh", "-c", "pg_isready -U $$POSTGRES_USER -h $$(hostname -i)"]
       interval: 10s

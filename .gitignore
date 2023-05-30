@@ -1,2 +1,2 @@
-postgres/
+volumes/postgres/
 dumps/*.sql
